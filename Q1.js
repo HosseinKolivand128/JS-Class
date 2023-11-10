@@ -26,3 +26,95 @@ Throw       Score
  */
 
 /** @todo WRITE YOUR CODES BELOW THIS */
+
+const number = () => Math.floor(Math.random() * 6 + 1);
+/**
+ * {}: we can don't use return but it wont return anything
+ * {}: if we need something to return we should use return statement inside the {}
+ * 
+ * -: it returns automatically just one order.
+*/
+
+
+// console.log(dice);
+
+const score = (dice) => {
+    const count = [0, 0, 0, 0, 0, 0];
+    let score = 0;
+    for (const number of dice) {
+        switch (number) {
+            case 1:
+                count[0]++
+                break;
+                case 2:
+                    count[1]++
+                    
+                    break;
+                    case 3:
+                        count[2]++
+                        
+                        break;
+                        case 4:
+                            count[3]++
+                            
+                            break;
+                            case 5:
+                                count[4]++
+                                
+                                break;
+                                case 6:
+                count[5]++
+                
+                break;
+            }
+        }
+    for (let i = 0; i < 6; i++) {
+        // const element = array[i];
+        if (count[i] >= 3) {
+            switch (i) {
+                case 0:
+                    score += 1000;
+                    break;
+                    case 1:
+                        score += 200;
+                        break;
+                        case 2:
+                            score += 300
+                            break;
+                            case 3:
+                                score += 400
+                                break;
+                                case 4:
+                                    score += 500
+                                    break;
+                                    case 5:
+                    score += 600
+                    break;
+                }
+        }
+    }
+    if (count[0] > 3) {
+        score = score + ((count[0] - 3) * 100)
+    } else if (count[0] < 3 && count[0] !== 0) {
+        score = score + (count[0] * 100)
+    }
+    if (count[4] > 3) {
+        score = score + ((count[4] - 3) * 50)
+    } else if (count[4] < 3 && count[4] !== 0) {
+        score = score + (count[4] * 50)
+    }
+    return score;
+}
+
+score(dice);
+
+// let variable= score(dice)
+
+// let dice = [];
+// for (let i = 0; i < 40; i++) {
+//     for (let i = 0; i < 5; i++) {
+//         dice[i] = number();
+//     }
+//     console.log(score(dice));
+// }
+
