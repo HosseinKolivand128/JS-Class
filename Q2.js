@@ -23,3 +23,16 @@ generateRandomPassword() => 'Ax7pZ9qC'
 */
 
 /** @todo WRITE YOUR CODE BELLOW THIS */
+
+const generatePass = () => {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let password = "";
+    for (let i = 0; i < 8; i++) {
+        const randNum = Math.floor(Math.random() * charset.length);
+        password += charset[randNum];
+
+    }
+    return password
+}
+
+console.log(generatePass());
