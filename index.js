@@ -108,7 +108,6 @@ for (let i = 0; i < 7; i++) {
     for (let i = 0; i < 7; i++) {
         const td = document.createElement("td");
         td.setAttribute("class", "td")
-        // td.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`;
         tr.append(td)
 
     }
@@ -129,81 +128,66 @@ document.querySelector("header").insertAdjacentElement("afterend", circle);
 
 
 //todo create a star as a hover btn to change bg color
-function freeDance(police) {
-    // document.body.style.backgroundColor = "black";
-    console.log(police);
-    clearInterval(police)
-    return setInterval(() => {
-        //todo different of childNode and children
-        // console.log(table.childNodes);
-        document.querySelectorAll(".td").forEach(element => {
-            const randomColor = [Math.floor(Math.random() * 200 + 150), Math.floor(Math.random() * 210 + 1), Math.floor(Math.random() * 130 + 75)];
-            element.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`
-        });
-    }, 300);
 
-}
-// clearInterval(freeDance())
-function policeCall(dance) {
-    console.log(dance);
-    clearInterval(dance)
-    let i = 0;
-    return setInterval(() => {
-        //todo different of childNode and children
-        // console.log(table.childNodes);
-        document.querySelectorAll(".td").forEach(element => {
-            const randomColor = ["red", "blue"];
-            element.style.backgroundColor = `${randomColor[i > 1 ? i = 0 : i]}`
-            //todo
-            i++;
-        });
-    }, 300);
-}
-// clearInterval(policeCall())
+let isTrue=false
+let flan=2
+    while(isTrue===false&&flan>0){
+         setInterval(() => {
+        
+            if(isTrue===false){
+            document.querySelectorAll(".td").forEach(element => {
+                const randomColor = [Math.floor(Math.random() * 200 + 150), Math.floor(Math.random() * 210 + 1), Math.floor(Math.random() * 130 + 75)];
+                element.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`
+                
+            })}
+        }, 300);
+        flan--
+        console.log('im in wile loop maingooy');
+    }
+
+
+
+
+
+
+
+
+
 
 
 //! Change button Style and add event listener
 
 const button = document.querySelector("button");
-// button.textContent="theme"
 button.style.width = '60px'
 button.style.height = '35px';
 button.style.borderRadius = "5px";
 button.style.backgroundColor = "yellow";
 button.style.boxShadow = "0 0 15px yellow";
 
-button.addEventListener("click", (event) => {
-    // console.log(event);
-    var cancelDance;
-    var cancelPolice;
-    if (document.body.style.backgroundColor === "white") {
-        document.body.style.backgroundColor = "black";
-        // clearInterval(cancelPolice);
-        freeDance(policeCall());
-    } else {
-        document.body.style.backgroundColor = "white";
-        // const h2 = document.createElement("h2");
-        // h2.innerText = "DARE YE SEDAII MIYAD"
-        document.body.append(h2)
-        // clearInterval(cancelDance);
-        policeCall(freeDance());
-        
+button.addEventListener("click", () => {
+    if(isTrue===false){
+        isTrue=true
+        let i = 0;
+            let policeColor= setInterval(() => {
+                
+                if(isTrue===false){
+                    clearInterval(policeColor)
+                    console.log('im not here yes?');
+                }
+                 if(isTrue===true){
+                    console.log('when isTrue=true you see me?');
+                     document.querySelectorAll(".td").forEach(element => {
+                    const randomColor = ["red", "blue"];
+                    element.style.backgroundColor = `${randomColor[i > 1 ? i = 0 : i]}`
+                    
+                    
+                    i++;
+                });
+                }
+               
+            }, 1000); }else if(isTrue===true){
+        isTrue=false
     }
-})
-
-
-const button1 = document.querySelector("#hosseiniye");
-button1.addEventListener("click", () => {
-    document.body.querySelector("#body").style.display = 'none'
-    const body = document.createElement("section");
-    body.style.backgroundColor = "green";
-    const h1 = document.createElement("h1");
-    h1.innerHTML = "یا حسین (ع)";
-    h1.style.color = "red";
-    body.style.margin = "auto"
-    body.append(h1);
-    document.body.append(body)
-
-
+    
 
 })
