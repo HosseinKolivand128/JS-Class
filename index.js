@@ -1,156 +1,208 @@
-// const heading = document.querySelectorAll("h1")
-// const heading2 = document.getElementsByTagName("h1")
+const rooms = ["casino", "bar", "dance floor"];
+let classA = [
+    {
+        kitchen: "Pouria",
 
-// console.dir(heading);//nodeList ->array
-// console.log(heading2);//html collection ->array
+    },
+    {
 
-/**diffrence
- * methods
- * returns everything inside a tag
-*/
+        AGHA: "Abolfazl",
+    },
+    {
 
-// const p = document.querySelector("header .heading #text");
-// console.log(p);
+        MORSHED: "HOSSEIN",
+    },
+    {
+
+        BacheMorshed: "Mobina",
+    },
+    {
+
+        khanumJalaseI: "Vajihe",
+    },
+    {
+
+        kafshJoftKon: "sara",
+    },
+    {
+
+        ghandPakhshKon: "DINA",
+    },
+    {
+
+        farshPahnkon: "Morteza",
+    },
+    {
+
+        sharbatPakhshkon: "ELIA",
+    },
+    {
+
+        jaruKesh: "Raziye",
+    },
+    {
+
+        zanjirZan: "ashkan",
+    },
+    {
+
+        shirTazie: "Mahsa",
+    },
+    {
+
+        chaiRiz: "Mahdis",
+    },
+    {
+
+        zarfiyatHosseiniye: 1000,
+    }
+];
+
+//! removing p tag
+const paragraph = document.querySelector("#text");
+//*1
+// paragraph.remove();
+//*2
+paragraph.parentElement.removeChild(paragraph);
 
 //! change heading text
-const headingText = document.querySelector("h1");
-// console.log(headingText);
-// headingText.innerHTML="Disco B" //!one
-headingText.innerText = "Disco B" //*two better way to change text of an element
+const heading = document.querySelector(".heading");
+console.dir(heading);
+//*1
+heading.textContent = "Disco A";
+//*2
+// heading.innerText = "class \n A \n\n this is wonderful class";
+
+//*3 try not to use when you want to change text
+// heading.innerHTML = "   class A <p> this is p tag</p>   "
+
+heading.style.color = "purple";
+
+//!give box class to the sections
+//todo different for html collection and node list
+const boxes = document.querySelectorAll("#parts section");
+
+boxes.forEach(element => {
+    //*1 class list
+    // element.classList.add("box");
+    //*2 set Attribute
+    element.setAttribute("class", "box");
+
+});
+
+document.body.style.background = "black";
 
 
-//! change navlinks 
-const rooms = ["casino", "bar", "dance floor"];
-const links = document.querySelectorAll("header ul li a")
-// console.log(links);
-// todo select by href att 
-for (const key in links) {
-    if (rooms[key] === undefined) {
-        /**//todo */
-        break
+const circle = document.createElement("div");
+circle.style.margin = "auto";
+circle.style.borderRadius = "50%";
+circle.style.width = "300px";
+circle.style.height = "300px";
+circle.style.backgroundColor = "black";
+
+const table = document.createElement("table");
+const tbody = document.createElement("tbody");
+
+for (let i = 0; i < 7; i++) {
+    const tr = document.createElement("tr");
+    for (let i = 0; i < 7; i++) {
+        const td = document.createElement("td");
+        td.setAttribute("class", "td")
+        // td.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`;
+        tr.append(td)
 
     }
-    links[key].innerText = rooms[key];
-
+    tbody.append(tr);
 }
 
+table.style.border = "1px ";
+table.style.margin = "auto"
+table.style.width = "100%"
+table.style.height = "100%"
+circle.style.overflow = "hidden";
+circle.style.boxShadow = "0px 0px 25px red,0px 0px 100px purple,0px 0px 100px white "
+table.append(tbody);
 
-//! give style to cards
-const cards = document.querySelectorAll("#parts section");
-console.log(cards);
+circle.append(table);
 
-//? giving styles which are ready in css file
-cards.forEach(element => {
-    element.setAttribute("class", "box")
-});
+document.querySelector("header").insertAdjacentElement("afterend", circle);
 
-//!giving style to cards title
 
-const titles = document.querySelectorAll("#parts section p")
-console.log(typeof titles[0]);
-console.log(titles);
-// console.log(titles[0].style);
-titles.forEach((element, index) => {
-    element.style.color = "red";
-    element.style.fontWeight = "bold";
-    element.style.fontSize = "25px"
-    if (index === titles.length - 1) {
-        element.innerText = "Vip Members"
+//todo create a star as a hover btn to change bg color
+function freeDance(police) {
+    // document.body.style.backgroundColor = "black";
+    console.log(police);
+    clearInterval(police)
+    return setInterval(() => {
+        //todo different of childNode and children
+        // console.log(table.childNodes);
+        document.querySelectorAll(".td").forEach(element => {
+            const randomColor = [Math.floor(Math.random() * 200 + 150), Math.floor(Math.random() * 210 + 1), Math.floor(Math.random() * 130 + 75)];
+            element.style.backgroundColor = `rgb(${randomColor[0]}, ${randomColor[1]}, ${randomColor[2]})`
+        });
+    }, 300);
+
+}
+// clearInterval(freeDance())
+function policeCall(dance) {
+    console.log(dance);
+    clearInterval(dance)
+    let i = 0;
+    return setInterval(() => {
+        //todo different of childNode and children
+        // console.log(table.childNodes);
+        document.querySelectorAll(".td").forEach(element => {
+            const randomColor = ["red", "blue"];
+            element.style.backgroundColor = `${randomColor[i > 1 ? i = 0 : i]}`
+            //todo
+            i++;
+        });
+    }, 300);
+}
+// clearInterval(policeCall())
+
+
+//! Change button Style and add event listener
+
+const button = document.querySelector("button");
+// button.textContent="theme"
+button.style.width = '60px'
+button.style.height = '35px';
+button.style.borderRadius = "5px";
+button.style.backgroundColor = "yellow";
+button.style.boxShadow = "0 0 15px yellow";
+
+button.addEventListener("click", (event) => {
+    // console.log(event);
+    var cancelDance;
+    var cancelPolice;
+    if (document.body.style.backgroundColor === "white") {
+        document.body.style.backgroundColor = "black";
+        // clearInterval(cancelPolice);
+        freeDance(policeCall());
+    } else {
+        document.body.style.backgroundColor = "white";
+        const h2 = document.createElement("h2");
+        h2.innerText = "DARE YE SEDAII MIYAD"
+        document.body.append(h2)
+        // clearInterval(cancelDance);
+        policeCall(freeDance());
     }
-});
-
-//?get attribute
-// const contactUsClass = document.querySelector("header>a").getAttribute("class");
-const contactUsClass = document.querySelector("header>a");
-
-console.log(contactUsClass.classList);
-//todo append another a to footer
-
-//!make vip list for class in last card
-
-const thirdBox = document.querySelector("#parts :nth-child(3)");
-console.log(thirdBox);
-
-const names = ["Asma", "Atie", "Bahareh", "Fatemeh", "Mahdie", "Maryam", "Sara"]
-const ListSection = document.createElement("section");
-const ListUl = document.createElement("ul");
-
-names.forEach(element => {
-    const li = document.createElement("li");
-    li.innerHTML = `<a href="#" class="names1">${element}</a> `;
-    li.style.padding = "5px"
-    ListUl.append(li)
-    // ListUl.appendChild()
-});
-
-
-
-//! changing members ul style
-ListUl.style.listStyleType = "none"
-
-ListSection.append(ListUl);
-thirdBox.append(ListSection);
-
-document.querySelectorAll(".names1").forEach(element => {
-    element.style.color = "white";
-    element.style.textDecoration = "none";
-    element.style.fontSize = "25px"
 })
 
 
-ListUl.style.display = "flex";
-ListUl.style.flexFlow = "column";
-ListUl.style.alignItems = "center";
-ListUl.style.padding = "0";
-
-// ListUl.style.justifyContent="";
-
-const btn = document.querySelector("button");
-
-console.log(btn.classList.add("btn"));
-
-// btn.setAttribute("class", "abc")
-
-// const footer = document.querySelector("footer")
-// const div = document.createElement("div");
-// div.innerText = "this is a div"
-// footer.append(div);
-// footer.remove(div);
-
-// footer.classList.add("box")
-
-// footer.setAttribute("class", "box")
+const button1 = document.querySelector("#hosseiniye");
+button1.addEventListener("click", () => {
+    document.body.querySelector("#body").style.display = 'none'
+    const body = document.createElement("section");
+    body.style.backgroundColor = "green";
+    const h1 = document.createElement("h1");
+    h1.innerHTML = "یا حسین (ع)";
+    h1.style.color = "red";
+    body.style.margin = "auto"
+    body.append(h1);
+    document.body.append(body)
 
 
-const body = document.querySelector("body");
-console.log(body.children);
-console.log(body.children[7]);
-console.log(Object.values(body.children[7]).includes("footer"));
-let footer;
 
-// console.log(typeof body.children[7].nodeName);
-console.log(body.children[7]);
-for (let i = 0; i < body.children.length; i++) {
-    if (body.children[i].nodeName === "FOOTER") {
-        console.log(body.children[i].nodeName);
-    }
-}
-console.log(footer);
-// children : returns only elements
-// childNode : returns element content (everything)
-
-
-// const div = document.createElement("div");
-// footer.innerText = "THIS IS FOOTER"
-// div.innerText = "THIS IS A DIV AS ADJACENT"
-// footer.insertAdjacentElement('afterbegin', div)
-// footer.insertAdjacentElement('afterend', div)
-// footer.insertAdjacentElement('beforebegin', div)
-// footer.insertAdjacentElement('beforeend', div)
-
-// body.children
-
-// const footer = {}
-
-// const yechizi = [footer]
-// console.log(yechizi);
+})

@@ -46,6 +46,7 @@ a:visited{
     align-items: center;
     border-radius: 40px ;
     box-shadow: red 0px 0px 60px;
+    /* overflow: hidden; */
     
     /* font-size: ;
     font-weight: ; */
