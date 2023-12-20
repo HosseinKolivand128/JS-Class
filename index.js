@@ -182,11 +182,12 @@ button.addEventListener("click", (event) => {
         freeDance(policeCall());
     } else {
         document.body.style.backgroundColor = "white";
-        const h2 = document.createElement("h2");
-        h2.innerText = "DARE YE SEDAII MIYAD"
+        // const h2 = document.createElement("h2");
+        // h2.innerText = "DARE YE SEDAII MIYAD"
         document.body.append(h2)
         // clearInterval(cancelDance);
         policeCall(freeDance());
+        
     }
 })
 
