@@ -121,7 +121,7 @@ const list = document.createElement("ul");
 
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault();// to prevent the form default behavior like reload the page
+    e.preventDefault();// !to prevent the form default behavior like reload the page
     // alert("submitted")
     //todo 
     if (!(emailInput.value === "") && checkCaptcha(inputDiv.value)) {
