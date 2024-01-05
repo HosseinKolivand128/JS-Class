@@ -45,8 +45,8 @@ const labelPassword = document.createElement('label');
 
 //? Captcha
 const captcha = document.createElement('section');
-const inputDiv = document.createElement('input');
-const codeDiv = document.createElement('div');
+const inputDiv = document.createElement('input'); //* an input to type the captcha
+const codeDiv = document.createElement('div'); //* a div to show the captcha code
 const reCode = document.createElement('input');
 
 reCode.value = "R"
